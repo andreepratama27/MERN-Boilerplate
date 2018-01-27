@@ -1,4 +1,6 @@
 node_modules/
+.vscode/
 public/*.js
+public/*.css
 yarn-error.log
 yarn.lock

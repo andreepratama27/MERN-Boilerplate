@@ -1,0 +1,51 @@
+$dark: #333;
+$light: #fff;
+$gray: #f5f5f5;
+
+body {
+    background-color: $gray;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+}
+
+.navbar {
+    a {
+        color: $dark;
+    }
+}
+
+.card-wrapper {
+    margin: 1.2rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    .card-content {
+        .title {
+            font-size: 1.2rem;
+        }
+        .subtitle {
+            margin-top: .8rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+.login-wrapper {
+    margin: 1.2rem;
+    padding: 1.2rem;
+    min-height: 10rem;
+    background-color: $light;
+
+    .is-grouped {
+        margin-top: 2.4rem;
+        display: flex;
+        align-items: center;
+    }
+}
