@@ -1,12 +1,15 @@
 require('module-alias/register')
 
 const express = require('express')
+const passport = require('passport')
+const GoogleStragegy = require('passport-google-auth20').Strategy
 const logger = require('morgan')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
+
 const api = require('./routes/api')
 
 const app = express()
@@ -18,6 +21,8 @@ const compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }))
+
+passport.use(new GoogleStrategy())
 
 app.use(logger('dev'))
 app.use(express.static('public'))
