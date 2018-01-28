@@ -1,3 +1,5 @@
+require('module-alias/register')
+
 const express = require('express')
 const logger = require('morgan')
 const mongoose = require('mongoose')
@@ -32,6 +34,7 @@ app.use('/api/v1', api)
 /* Render view */
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html')
+  console.log(process.env.NODE_ENV)
 })
 
 app.listen(port, () => {
