@@ -15,7 +15,7 @@ class App extends Component {
                 <nav className="navbar is-warning">
                     <div className="navbar-brand">
                         <Link to="/" className="navbar-item">
-                            Personal Notes
+                            Idea Notes
                         </Link>
                     </div>
 
