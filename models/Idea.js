@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-const IdeaSchema = new mongoose.Schema({
+const { Schema } = mongoose
+
+const IdeaSchema = new Schema({
   user: {
     type: String,
     required: true

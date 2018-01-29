@@ -9,6 +9,7 @@
   },
   "_moduleAliases": {
     "@root": ".",
+    "@configs": "configs/",
     "@models": "models/"
   },
   "dependencies": {

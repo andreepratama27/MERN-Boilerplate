@@ -24,11 +24,11 @@ api.get('/ideas', (req, res) => {
 })
 
 api.post('/ideas', (req, res) => {
-  let data = new Idea(req.body)
-  data.save((err, result) => {
-    if (err) res.json(err)
-    res.json(result)
-  })
+  new Idea(req.body)
+    .save((err, result) => {
+      if (err) res.send(err)
+      res.json(result)
+    })
 })
 
 module.exports = api
