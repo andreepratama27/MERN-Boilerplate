@@ -28,9 +28,9 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback'
+      callbackURL: "/auth/google/callback"
     },
-    (accessToken,  => {
+    accessToken => {
       console.log(accessToken)
     }
   )
@@ -49,11 +49,13 @@ mongoose.connect('mongodb://localhost/idea')
 app.use('/api/v1', api)
 
 app.get(
-  '/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email']
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
   })
 )
+
+app.get('/auth/google/callback', passport.authenticate('google'))
 
 /* Render view */
 app.get('/', (req, res) => {
