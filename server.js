@@ -6,9 +6,12 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
+const cookieSession = require('cookie-session')
+const passport = require('passport')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const config = require('./webpack-dev.config.js')
+const keys = require('./configs/keys')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -17,6 +20,15 @@ const compiler = webpack(config)
 const api = require('./routes/api')
 const authRoutes = require('./routes/authRoutes')(app)
 
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+)
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 /* Webpack config */
 app.use(webpackDevMiddleware(compiler, {
