@@ -2,6 +2,7 @@ node_modules/
 .vscode/
 public/*.js
 public/*.css
+config/keys.js
 yarn-error.log
 yarn.lock
 .vscode
